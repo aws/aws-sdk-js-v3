@@ -45,6 +45,31 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRe
  *   ContactId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   ListFilter: { // RealTimeContactAnalysisSegmentsFilter
+ *     CategoriesAttributeFilter: { // CategoriesAttributeFilter
+ *       OrConditions: [ // CategoriesAttributeOrConditionList
+ *         { // CategoriesAttributeAndCondition
+ *           TagConditions: [ // TagAndConditionList
+ *             { // TagCondition
+ *               TagKey: "STRING_VALUE",
+ *               TagValue: "STRING_VALUE",
+ *               ComparisonType: "EQUALS" || "NOT_EQUALS",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       AndCondition: {
+ *         TagConditions: [
+ *           {
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *             ComparisonType: "EQUALS" || "NOT_EQUALS",
+ *           },
+ *         ],
+ *       },
+ *       TagCondition: "<TagCondition>",
+ *     },
+ *   },
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsCommand(input);
  * const response = await client.send(command);
@@ -80,6 +105,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRe
  * //                 EndOffsetMillis: Number("int"), // required
  * //               },
  * //             ],
+ * //             RuleId: "STRING_VALUE",
  * //           },
  * //         },
  * //       },

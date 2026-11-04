@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const TagComparisonType = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type TagComparisonType = (typeof TagComparisonType)[keyof typeof TagComparisonType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExtractedInformationFailureCode = {
   FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
   INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",

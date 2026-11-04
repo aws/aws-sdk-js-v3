@@ -2,6 +2,8 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   Categories$,
+  CategoriesAttributeAndCondition$,
+  CategoriesAttributeFilter$,
   CategoryDetails$,
   CharacterOffsets$,
   ConnectContactLens,
@@ -25,9 +27,12 @@ import {
   PostContactSummaryFailureCode,
   PostContactSummaryStatus,
   RealtimeContactAnalysisSegment$,
+  RealTimeContactAnalysisSegmentsFilter$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   SentimentValue,
+  TagComparisonType,
+  TagCondition$,
   ThrottlingException,
   ThrottlingException$,
   Transcript$,
@@ -41,6 +46,8 @@ assert(typeof ListRealtimeContactAnalysisSegmentsCommand === "function");
 assert(typeof ListRealtimeContactAnalysisSegments$ === "object");
 // structural schemas
 assert(typeof Categories$ === "object");
+assert(typeof CategoriesAttributeAndCondition$ === "object");
+assert(typeof CategoriesAttributeFilter$ === "object");
 assert(typeof CategoryDetails$ === "object");
 assert(typeof CharacterOffsets$ === "object");
 assert(typeof ExtractedInformation$ === "object");
@@ -51,12 +58,15 @@ assert(typeof ListRealtimeContactAnalysisSegmentsResponse$ === "object");
 assert(typeof PointOfInterest$ === "object");
 assert(typeof PostContactSummary$ === "object");
 assert(typeof RealtimeContactAnalysisSegment$ === "object");
+assert(typeof RealTimeContactAnalysisSegmentsFilter$ === "object");
+assert(typeof TagCondition$ === "object");
 assert(typeof Transcript$ === "object");
 // enums
 assert(typeof ExtractedInformationFailureCode === "object");
 assert(typeof PostContactSummaryFailureCode === "object");
 assert(typeof PostContactSummaryStatus === "object");
 assert(typeof SentimentValue === "object");
+assert(typeof TagComparisonType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ConnectContactLensServiceException);
 assert(typeof AccessDeniedException$ === "object");

@@ -4,7 +4,94 @@ import type {
   PostContactSummaryFailureCode,
   PostContactSummaryStatus,
   SentimentValue,
+  TagComparisonType,
 } from "./enums";
+
+/**
+ * <p>A tag condition that consists of a tag key, a tag value, and a comparison
+ *             operator.</p>
+ * @public
+ */
+export interface TagCondition {
+  /**
+   * <p>The tag key in the tag condition.</p>
+   * @public
+   */
+  TagKey?: string | undefined;
+
+  /**
+   * <p>The tag value in the tag condition.</p>
+   * @public
+   */
+  TagValue?: string | undefined;
+
+  /**
+   * <p>The comparison operator for the tag condition. Valid values: <code>EQUALS</code> |
+   *             <code>NOT_EQUALS</code>.</p>
+   * @public
+   */
+  ComparisonType?: TagComparisonType | undefined;
+}
+
+/**
+ * <p>A list of tag conditions that the filter evaluates together using AND logic. A
+ *             category segment matches only when the tags on its rule satisfy every tag condition in
+ *             the list.</p>
+ * @public
+ */
+export interface CategoriesAttributeAndCondition {
+  /**
+   * <p>A list of tag conditions. All of the tag conditions must be met for the condition to
+   *             match.</p>
+   * @public
+   */
+  TagConditions?: TagCondition[] | undefined;
+}
+
+/**
+ * <p>A filter that matches category segments based on the tags assigned to the rules that
+ *             create the categories. Provide exactly one of <code>OrConditions</code>,
+ *             <code>AndCondition</code>, or <code>TagCondition</code>.</p>
+ * @public
+ */
+export interface CategoriesAttributeFilter {
+  /**
+   * <p>A list of conditions that the filter evaluates using OR logic. A category segment
+   *             matches when at least one of the conditions in the list is met.</p>
+   * @public
+   */
+  OrConditions?: CategoriesAttributeAndCondition[] | undefined;
+
+  /**
+   * <p>A condition that the filter evaluates using AND logic. A category segment matches only
+   *             when all of the tag conditions in the condition are met.</p>
+   * @public
+   */
+  AndCondition?: CategoriesAttributeAndCondition | undefined;
+
+  /**
+   * <p>A single tag condition that a category segment must match. The category's rule must
+   *             have the specified tag.</p>
+   * @public
+   */
+  TagCondition?: TagCondition | undefined;
+}
+
+/**
+ * <p>A filter that restricts the segments returned by
+ *             <code>ListRealtimeContactAnalysisSegments</code>. It supports filtering category
+ *             segments by the tags on the rules that create them, which enforces tag-based access
+ *             control on the categories a caller can view.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentsFilter {
+  /**
+   * <p>A filter applied to category segments based on the tags of the rules that create the
+   *             matched categories.</p>
+   * @public
+   */
+  CategoriesAttributeFilter?: CategoriesAttributeFilter | undefined;
+}
 
 /**
  * @public
@@ -34,6 +121,15 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>A filter that limits the category segments returned by the operation. When provided,
+   *             use <code>CategoriesAttributeFilter</code> to return only the category segments whose
+   *             rules have tags that match the filter. This enforces tag-based access control on the
+   *             categories that the caller can view.</p>
+   * @public
+   */
+  ListFilter?: RealTimeContactAnalysisSegmentsFilter | undefined;
 }
 
 /**
@@ -64,6 +160,12 @@ export interface CategoryDetails {
    * @public
    */
   PointsOfInterest: PointOfInterest[] | undefined;
+
+  /**
+   * <p>The unique identifier of the rule that created the matched category.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
 }
 
 /**
