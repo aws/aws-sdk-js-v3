@@ -475,6 +475,7 @@ import {
   LocalStorageType,
   LogConfiguration$,
   LogDriver,
+  LogDriverVolumeConfiguration$,
   ManagedAgent$,
   ManagedAgentName,
   ManagedAgentStateChange$,
@@ -1233,6 +1234,7 @@ assert(typeof ListTasksRequest$ === "object");
 assert(typeof ListTasksResponse$ === "object");
 assert(typeof LoadBalancer$ === "object");
 assert(typeof LogConfiguration$ === "object");
+assert(typeof LogDriverVolumeConfiguration$ === "object");
 assert(typeof ManagedAgent$ === "object");
 assert(typeof ManagedAgentStateChange$ === "object");
 assert(typeof ManagedApplicationAutoScalingPolicy$ === "object");

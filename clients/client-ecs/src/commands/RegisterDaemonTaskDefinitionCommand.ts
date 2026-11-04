@@ -172,6 +172,9 @@ export interface RegisterDaemonTaskDefinitionCommandOutput extends RegisterDaemo
  *       host: { // HostVolumeProperties
  *         sourcePath: "STRING_VALUE",
  *       },
+ *       logDriverVolumeConfiguration: { // LogDriverVolumeConfiguration
+ *         driver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       },
  *     },
  *   ],
  *   tags: [ // Tags

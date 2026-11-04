@@ -636,6 +636,7 @@ export type {
   ListTasksResponse,
   LoadBalancer,
   LogConfiguration,
+  LogDriverVolumeConfiguration,
   ManagedAgent,
   ManagedAgentStateChange,
   ManagedApplicationAutoScalingPolicy,

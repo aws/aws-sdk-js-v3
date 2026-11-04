@@ -178,6 +178,9 @@ export interface DescribeDaemonTaskDefinitionCommandOutput extends DescribeDaemo
  * //         host: { // HostVolumeProperties
  * //           sourcePath: "STRING_VALUE",
  * //         },
+ * //         logDriverVolumeConfiguration: { // LogDriverVolumeConfiguration
+ * //           driver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ * //         },
  * //       },
  * //     ],
  * //     cpu: "STRING_VALUE",

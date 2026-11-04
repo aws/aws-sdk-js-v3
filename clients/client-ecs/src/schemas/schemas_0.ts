@@ -360,6 +360,7 @@ const _LDRi = "ListDaemonsResponse";
 const _LDTD = "ListDaemonTaskDefinitions";
 const _LDTDR = "ListDaemonTaskDefinitionsRequest";
 const _LDTDRi = "ListDaemonTaskDefinitionsResponse";
+const _LDVC = "LogDriverVolumeConfiguration";
 const _LEE = "LimitExceededException";
 const _LG = "ListGateways";
 const _LGCA = "ListGatewayClusterAssociations";
@@ -965,6 +966,7 @@ const _lBo = "loadBalancer";
 const _lC = "logConfiguration";
 const _lCi = "linearConfiguration";
 const _lD = "logDriver";
+const _lDVC = "logDriverVolumeConfiguration";
 const _lG = "logGroups";
 const _lGN = "logGroupName";
 const _lGo = "logGroup";
@@ -1881,8 +1883,8 @@ export var DaemonTaskDefinitionSummary$: StaticStructureSchema = [3, n0, _DTDS,
 ];
 export var DaemonVolume$: StaticStructureSchema = [3, n0, _DV,
   0,
-  [_n, _ho],
-  [0, () => HostVolumeProperties$]
+  [_n, _ho, _lDVC],
+  [0, () => HostVolumeProperties$, () => LogDriverVolumeConfiguration$]
 ];
 export var DeleteAccountSettingRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
@@ -2763,6 +2765,11 @@ export var LogConfiguration$: StaticStructureSchema = [3, n0, _LCo,
   0,
   [_lD, _o, _sO],
   [0, 128 | 0, () => SecretList], 1
+];
+export var LogDriverVolumeConfiguration$: StaticStructureSchema = [3, n0, _LDVC,
+  0,
+  [_dr],
+  [0], 1
 ];
 export var ManagedAgent$: StaticStructureSchema = [3, n0, _MA,
   0,
